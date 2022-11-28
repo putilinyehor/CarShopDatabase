@@ -1,13 +1,13 @@
-package customerdata;
+package persondata;
 
 public class Address {
     private String country;
     private String city;
-    private String zipCode;
+    private int zipCode;
     private String street;
     private String houseNumber;
 
-    public Address(String country, String city, String zipCode, String street, String houseNumber) {
+    public Address(String country, String city, int zipCode, String street, String houseNumber) {
         this.country = country;
         this.city = city;
         this.zipCode = zipCode;
@@ -31,11 +31,11 @@ public class Address {
         this.city = city;
     }
 
-    public String getZipCode() {
+    public int getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
 
@@ -53,5 +53,13 @@ public class Address {
 
     public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
+    }
+
+    public String stringAddressInfo() {
+        return  "\tCountry: " + this.country + "\n" +
+                "\tCity: " + this.city + "\n" +
+                "\tZip code: " + this.zipCode + "\n" +
+                "\tStreet: " + this.street + "\n" +
+                "\tHouse number: " + this.houseNumber + "\n";
     }
 }

@@ -1,6 +1,6 @@
 package cardata;
 
-import managerdata.Manager;
+import persondata.Manager;
 
 public class Car {
     private String name;
@@ -73,7 +73,7 @@ public class Car {
                 "Year: " + this.year + "\n" +
                 "Drivetrain type: " + this.drivetrainType + "\n" +
                 "Price: " + this.price + "\n" +
-                "Manager: " + this.manager + "\n" +
+                "Manager: " + "\n" +
                 "\tName: " + this.manager.getName() + "\n" +
                 "\tSurname: " + this.manager.getSurname() + "\n";
     }

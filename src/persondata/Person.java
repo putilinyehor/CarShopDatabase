@@ -1,20 +1,20 @@
-package managerdata;
+package persondata;
 
-public class Manager {
-    private String name;
-    private String surname;
-    private String patronymic;
-    private int[] dateOfBirth; // day, month, year
-    private float seniority;
-    private String telephone;
+public class Person {
+    protected int id;
+    protected String name;
+    protected String surname;
+    protected String patronymic;
+    protected int[] dateOfBirth; // day, month, year
+    protected String telephone;
+    protected Address address;
 
-    public Manager(String name, String surname, String patronymic, int birthDay, int birthMonth, int birthYear, float seniority, String telephone) {
-        this.name = name;
-        this.surname = surname;
-        this.patronymic = patronymic;
-        setDateOfBirth(birthDay, birthMonth, birthYear);
-        this.seniority = seniority;
-        setTelephone(telephone);
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -70,14 +70,6 @@ public class Manager {
         this.dateOfBirth = new int[] {day, month, year};
     }
 
-    public float getSeniority() {
-        return seniority;
-    }
-
-    public void setSeniority(float seniority) {
-        this.seniority = seniority;
-    }
-
     public String getTelephone() {
         return telephone;
     }
@@ -87,24 +79,21 @@ public class Manager {
      * @param telephone String telephone number (in case it's a big one, for some reason)
      * @return Returns TRUE if telephone was correct
      */
-    public boolean setTelephone(String telephone) {
-        if (telephone.matches("[0-9]+")) {
-            this.telephone = telephone;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public static boolean isTelephoneFormatted(String telephone) {
+        if (telephone.matches("[0-9]+"))
             return true;
-        }
         return false;
     }
 
-    /**
-     * Returns a printable string with info about a manager
-     * @return string, which represents all info about a manager
-     */
-    public String stringManagerInfo() {
-        return  "Name: " + this.name + "\n" +
-                "Surname: " + this.surname + "\n" +
-                "Patronymic: " + this.patronymic + "\n" +
-                "Date of Birth: " + stringDateOfBirth() + "\n" +
-                "Seniority: " + this.seniority + "\n" +
-                "Telephone number:" + this.telephone + "\n";
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

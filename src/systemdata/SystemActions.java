@@ -1,9 +1,9 @@
 package systemdata;
 
 import cardata.Car;
-import managerdata.Manager;
+import persondata.Manager;
 
-public class System {
+public class SystemActions {
 
     public static void saleCar(Manager manager, Car car) {
 
