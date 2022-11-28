@@ -50,7 +50,7 @@ public class InputOutput {
             return false;
         }
         return true;
-    }
+    } // TODO: fucked up function
 
     public static boolean readCustomersFile() {
         return false;
