@@ -83,13 +83,16 @@ public class Manager {
     }
 
     /**
-     * check, if the telephonenumber is a correct one
-     * @param telephone
+     * Returns TRUE if the telephone input was correct and FALSE in case it isn't
+     * @param telephone String telephone number (in case it's a big one, for some reason)
+     * @return Returns TRUE if telephone was correct
      */
-    public void setTelephone(String telephone) {
-        //if (telephone.matches("[0-9]+")) {
+    public boolean setTelephone(String telephone) {
+        if (telephone.matches("[0-9]+")) {
             this.telephone = telephone;
-        //}
+            return true;
+        }
+        return false;
     }
 
     /**

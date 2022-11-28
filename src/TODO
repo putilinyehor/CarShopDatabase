@@ -1,5 +1,5 @@
-1. Add id numbers for classes car, manager etc.
+// later // 1. Add id numbers for classes car, manager etc.
 2. Add printing information for classes car, manager etc.
-3. Manager class, 92nd line - add a check fot a telephone number INTEGER
+>> 3. Manager class, 92nd line - add a check fot a telephone number INTEGER
 4. Adding a customer/car etc. from command line
 5. finish Address class

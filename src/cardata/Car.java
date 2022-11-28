@@ -6,17 +6,15 @@ public class Car {
     private String name;
     private String brand;
     private int year;
-    private float engineCapacity;
-    private String carType;
-    private float price;
+    private DrivetrainType drivetrainType;
+    private float price; // TODO: Default currency - EURO, make functions for USD, etc.
     private Manager manager;
 
-    public Car(String name, String brand, int year, float engineCapacity, String carType, float price, Manager manager) {
+    public Car(String name, String brand, int year, DrivetrainType drivetrainType, float price, Manager manager) {
         this.name = name;
         this.brand = brand;
         this.year = year;
-        this.engineCapacity = engineCapacity;
-        this.carType = carType;
+        this.drivetrainType = drivetrainType;
         this.price = price;
         this.manager = manager;
     }
@@ -45,20 +43,12 @@ public class Car {
         this.year = year;
     }
 
-    public float getEngineCapacity() {
-        return engineCapacity;
+    public DrivetrainType getDrivetrainType() {
+        return drivetrainType;
     }
 
-    public void setEngineCapacity(float engineCapacity) {
-        this.engineCapacity = engineCapacity;
-    }
-
-    public String getCarType() {
-        return carType;
-    }
-
-    public void setCarType(String carType) {
-        this.carType = carType;
+    public void setDrivetrainType(DrivetrainType drivetrainType) {
+        this.drivetrainType = drivetrainType;
     }
 
     public float getPrice() {
@@ -75,5 +65,16 @@ public class Car {
 
     public void setManager(Manager manager) {
         this.manager = manager;
+    }
+
+    public String stringCarInfo() {
+        return  "Name: " + this.name + "\n" +
+                "Brand: " + this.brand + "\n" +
+                "Year: " + this.year + "\n" +
+                "Drivetrain type: " + this.drivetrainType + "\n" +
+                "Price: " + this.price + "\n" +
+                "Manager: " + this.manager + "\n" +
+                "\tName: " + this.manager.getName() + "\n" +
+                "\tSurname: " + this.manager.getSurname() + "\n";
     }
 }

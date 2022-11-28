@@ -1,20 +1,30 @@
 package customerdata;
 
 public class Customer {
+    private static int nextId = 0;
+    private int id; // TODO: implement a system to increment ID, when running a program every time (read/write file)
     private String name;
     private String surname;
     private String patronymic;
     private String telephone;
     private Address address;
-    private int idNumber;
 
-    public Customer(String name, String surname, String patronymic, String telephone, Address address, int idNumber) {
+    public Customer(String name, String surname, String patronymic, String telephone, Address address) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
         this.telephone = telephone;
         this.address = address;
-        this.idNumber = idNumber;
+        this.id = nextId;
+        nextId++;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -55,13 +65,5 @@ public class Customer {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public int getIdNumber() {
-        return idNumber;
-    }
-
-    public void setIdNumber(int idNumber) {
-        this.idNumber = idNumber;
     }
 }
