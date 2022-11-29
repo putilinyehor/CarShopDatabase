@@ -27,12 +27,14 @@ public class Customer extends Person{
         this.address = address;
     }
 
-    public String stringCustomerInfo() {
-        return  "Name: " + this.name + "\n" +
+    @Override
+    public String toString() {
+        return  "ID: " + this.id + "\n" +
+                "Name: " + this.name + "\n" +
                 "Surname: " + this.surname + "\n" +
                 "Patronymic: " + this.patronymic + "\n" +
                 "Date of Birth: " + this.stringDateOfBirth() + "\n" +
                 "Telephone number: " + this.telephone + "\n" +
-                "Address: \n" + this.address.stringAddressInfo();
+                "Address: \n" + this.address.toString();
     }
 }

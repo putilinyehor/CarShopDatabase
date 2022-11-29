@@ -57,7 +57,8 @@ public class Address implements Serializable {
         this.houseNumber = houseNumber;
     }
 
-    public String stringAddressInfo() {
+    @Override
+    public String toString() {
         return  "\tCountry: " + this.country + "\n" +
                 "\tCity: " + this.city + "\n" +
                 "\tZip code: " + this.zipCode + "\n" +

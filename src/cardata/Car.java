@@ -2,7 +2,11 @@ package cardata;
 
 import persondata.Manager;
 
-public class Car {
+import java.io.Serializable;
+
+public class Car implements Serializable {
+    private int id;
+    private static int nextID;
     private String name;
     private String brand;
     private int year;
@@ -12,6 +16,8 @@ public class Car {
     boolean isSold;
 
     public Car(String name, String brand, int year, DrivetrainType drivetrainType, float price, Manager manager) {
+        this.id = nextID;
+        nextID++;
         this.name = name;
         this.brand = brand;
         this.year = year;
@@ -19,6 +25,22 @@ public class Car {
         this.price = price;
         this.manager = manager;
         isSold = false;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static int getNextID() {
+        return nextID;
+    }
+
+    public static void setNextID(int nextID) {
+        Car.nextID = nextID;
     }
 
     public String getName() {
@@ -77,8 +99,10 @@ public class Car {
         isSold = sold;
     }
 
-    public String stringCarInfo() {
-        return  "Name: " + this.name + "\n" +
+    @Override
+    public String toString() {
+        return  "ID: " + this.id + "\n" +
+                "Name: " + this.name + "\n" +
                 "Brand: " + this.brand + "\n" +
                 "Year: " + this.year + "\n" +
                 "Drivetrain type: " + this.drivetrainType + "\n" +

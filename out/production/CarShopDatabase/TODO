@@ -6,5 +6,9 @@
 >> 5. finish Address class
 
 2 day
-1. Save/Load system
-2. Arrays of data
+>> 1. Save/Load system - basic
+>> 2. Arrays of data - basic
+
+
+GLOBAL:
+    Update ID's function, to prevent from using too large id numbers. Can be called manually

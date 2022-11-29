@@ -32,17 +32,15 @@ public class Manager extends Person {
         this.address = address;
     }
 
-    /**
-     * Returns a printable string with info about a manager
-     * @return string, which represents all info about a manager
-     */
-    public String stringManagerInfo() {
-        return  "Name: " + this.name + "\n" +
+    @Override
+    public String toString() {
+        return  "ID: " + this.id + "\n" +
+                "Name: " + this.name + "\n" +
                 "Surname: " + this.surname + "\n" +
                 "Patronymic: " + this.patronymic + "\n" +
                 "Date of Birth: " + this.stringDateOfBirth() + "\n" +
                 "Telephone number: " + this.telephone + "\n" +
-                "Address: \n" + this.address.stringAddressInfo() +
+                "Address: \n" + this.address.toString() +
                 "Seniority: " + this.seniority + "\n";
     }
 }

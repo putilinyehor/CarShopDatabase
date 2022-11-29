@@ -26,16 +26,53 @@ public class Main {
         Manager managerTemplate = new Manager("Joseph", "Seed", "Stark", dateOfBirth, "1238712731784", addressTemplate1, 2.2F);
         Customer customerTemplate = new Customer("John", "Ares", "The Mighty", dateOfBirth, "223588564856", addressTemplate2);
         Car carTemplate = new Car("Mercedes-Benz GLC 250", "Mercedes-Benz", 2016, DrivetrainType.AWD, 35000, managerTemplate);
-        //System.out.println(managerTemplate.stringManagerInfo());
-        //System.out.println(carTemplate.stringCarInfo());
-        //System.out.println(customerTemplate.stringCustomerInfo());
+        Sale saleTemplate1 = new Sale(carTemplate, customerTemplate, dateOfBirth, "Some info");
+        Sale saleTemplate2 = new Sale(carTemplate, customerTemplate, dateOfBirth);
+
+        // System.out.println(managerTemplate.toString());
+        // System.out.println(customerTemplate.toString());
 
         managersList.add(managerTemplate);
-        managersList.add(managerTemplate);
+        customersList.add(customerTemplate);
+        carsList.add(carTemplate);
+        salesList.add(saleTemplate1);
+        salesList.add(saleTemplate2);
 
+        printAllLists();
+    }
+
+    // TODO: make it boolean to check the return values
+    public static void writeAllLists() {
         InputOutput.writeManagersFile(managersList);
+        InputOutput.writeCustomersFile(customersList);
+        InputOutput.writeCarsFile(carsList);
+        InputOutput.writeSalesFile(salesList);
+    }
+
+    // TODO: make it boolean to check the return values
+    public static void readAllLists() {
         managersList = InputOutput.readManagersFile();
+        customersList = InputOutput.readCustomersFile();
+        carsList = InputOutput.readCarsFile();
+        salesList = InputOutput.readSalesFile();
+    }
+
+    // will be deleted
+    public static void printAllLists() {
         for (Manager m : managersList)
-            System.out.println(m.stringManagerInfo());
+            System.out.println(m.toString());
+        System.out.println("*************************");
+
+        for (Customer c : customersList)
+            System.out.println(c.toString());
+        System.out.println("*************************");
+
+        for (Car c : carsList)
+            System.out.println(c.toString());
+        System.out.println("*************************");
+
+        for (Sale s : salesList)
+            System.out.println(s.toString());
+        System.out.println("*************************");
     }
 }
