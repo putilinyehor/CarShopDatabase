@@ -9,6 +9,7 @@ public class Car {
     private DrivetrainType drivetrainType;
     private float price; // TODO: Default currency - EURO, make functions for USD, etc.
     private Manager manager;
+    boolean isSold;
 
     public Car(String name, String brand, int year, DrivetrainType drivetrainType, float price, Manager manager) {
         this.name = name;
@@ -17,6 +18,7 @@ public class Car {
         this.drivetrainType = drivetrainType;
         this.price = price;
         this.manager = manager;
+        isSold = false;
     }
 
     public String getName() {
@@ -65,6 +67,14 @@ public class Car {
 
     public void setManager(Manager manager) {
         this.manager = manager;
+    }
+
+    public boolean isSold() {
+        return isSold;
+    }
+
+    public void setSold(boolean sold) {
+        isSold = sold;
     }
 
     public String stringCarInfo() {

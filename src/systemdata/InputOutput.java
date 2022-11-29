@@ -1,28 +1,35 @@
 package systemdata;
 
+import persondata.Manager;
+
 import java.io.*;
+import java.util.List;
 
 public class InputOutput {
-    private static String directory = System.getProperty("user.dir");
-    private static String managersFileName = "managers.txt";
-    private static String customersFileName = "customers.txt";
-    private static String carsFileName = "managers.txt";
-    private static String absolutePath = directory + File.separator; // + fileName !
+    private static final String directory = System.getProperty("user.dir");
+    private static final String managersFileName = "managers.ser";
+    private static final String customersFileName = "customers.ser";
+    private static final String carsFileName = "managers.ser";
+    private static final String absolutePath = directory + File.separator; // + fileName !
 
     /**
      *
      * @return
      */
-    public static boolean writeManagersFile() {
-        try (FileWriter fileWriter = new FileWriter(absolutePath + managersFileName)) {
-            String fileContent = "Simple text";
-            fileWriter.write(fileContent);
-            fileWriter.close();
+    public static boolean writeManagersFile(List<Manager> managers) {
+        try {
+            FileOutputStream writeData = new FileOutputStream(absolutePath + managersFileName);
+            ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
+            writeStream.writeObject(managers);
+            writeStream.flush();
+            writeStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return false;
         } catch (IOException e) {
-            // Handle exception
+            e.printStackTrace();
             return false;
         }
-
         return true;
     }
 
@@ -38,19 +45,21 @@ public class InputOutput {
      *
      * @return
      */
-    public static boolean readManagersFile() {
+    public static List<Manager> readManagersFile() {
+        List<Manager> managers = null;
         try {
-            FileWriter fileWriter = new FileWriter("MyFile.txt", true);
-            fileWriter.write("Hello World");
-            fileWriter.write("\r\n");   // write new line
-            fileWriter.write("Good Bye!");
-            fileWriter.close();
+            FileInputStream readData = new FileInputStream(absolutePath + managersFileName);
+            ObjectInputStream readStream = new ObjectInputStream(readData);
+            managers = (List<Manager>) readStream.readObject();
+            readStream.close();
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-        return true;
-    } // TODO: fucked up function
+
+        return managers;
+    }
 
     public static boolean readCustomersFile() {
         return false;

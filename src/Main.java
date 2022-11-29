@@ -3,6 +3,7 @@ import cardata.DrivetrainType;
 import persondata.Address;
 import persondata.Customer;
 import persondata.Manager;
+import saledata.Sale;
 import systemdata.InputOutput;
 
 import java.util.ArrayList;
@@ -11,9 +12,10 @@ import java.util.Scanner;
 
 public class Main {
     // Lists initialisation
-    List<Manager> managersList = new ArrayList<Manager>();
-    List<Customer> customersList = new ArrayList<Customer>();
-    List<Car> carsList = new ArrayList<Car>();
+    private static List<Manager> managersList = new ArrayList<>();
+    private static List<Customer> customersList = new ArrayList<>();
+    private static List<Car> carsList = new ArrayList<>();
+    private static List<Sale> salesList = new ArrayList<>();
 
     private static Scanner scanner;
     public static void main(String[] args) {
@@ -28,8 +30,12 @@ public class Main {
         //System.out.println(carTemplate.stringCarInfo());
         //System.out.println(customerTemplate.stringCustomerInfo());
 
-        InputOutput.writeManagersFile();
-        InputOutput.readManagersFile();
+        managersList.add(managerTemplate);
+        managersList.add(managerTemplate);
 
+        InputOutput.writeManagersFile(managersList);
+        managersList = InputOutput.readManagersFile();
+        for (Manager m : managersList)
+            System.out.println(m.stringManagerInfo());
     }
 }
