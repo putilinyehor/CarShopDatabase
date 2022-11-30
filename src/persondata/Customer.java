@@ -1,8 +1,7 @@
 package persondata;
 
 public class Customer extends Person{
-    private static int nextId = 0; // TODO: implement a system to increment ID, when running a program every time (read/write file)
-
+    private static int nextId = 0;
     public Customer(String name, String surname, String patronymic, int birthDay, int birthMonth, int birthYear,
                     String telephone, String country, String city, int zipCode, String street, String houseNumber) {
         this.id = nextId;
@@ -25,6 +24,14 @@ public class Customer extends Person{
         this.dateOfBirth = dateOfBirth;
         this.setTelephone(telephone);
         this.address = address;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        Customer.nextId = nextId;
     }
 
     @Override

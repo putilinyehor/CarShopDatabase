@@ -24,7 +24,9 @@ public class Main {
         Address addressTemplate2 = new Address("Poland", "Warsaw", 46779, "Some street.", "4b");
         int [] dateOfBirth = {23, 5, 2004};
         Manager managerTemplate = new Manager("Joseph", "Seed", "Stark", dateOfBirth, "1238712731784", addressTemplate1, 2.2F);
+        Manager managerTemplate2 = new Manager("Joseph", "Seed", "Stark", dateOfBirth, "1238712731784", addressTemplate1, 2.2F);
         Customer customerTemplate = new Customer("John", "Ares", "The Mighty", dateOfBirth, "223588564856", addressTemplate2);
+        Customer customerTemplate2 = new Customer("John", "Ares", "The Mighty", dateOfBirth, "223588564856", addressTemplate2);
         Car carTemplate = new Car("Mercedes-Benz GLC 250", "Mercedes-Benz", 2016, DrivetrainType.AWD, 35000, managerTemplate);
         Sale saleTemplate1 = new Sale(carTemplate, customerTemplate, dateOfBirth, "Some info");
         Sale saleTemplate2 = new Sale(carTemplate, customerTemplate, dateOfBirth);
@@ -33,10 +35,15 @@ public class Main {
         // System.out.println(customerTemplate.toString());
 
         managersList.add(managerTemplate);
+        managersList.add(managerTemplate2);
         customersList.add(customerTemplate);
+        customersList.add(customerTemplate2);
         carsList.add(carTemplate);
         salesList.add(saleTemplate1);
         salesList.add(saleTemplate2);
+
+        writeAllLists();
+        readAllLists();
 
         printAllLists();
     }
@@ -59,6 +66,7 @@ public class Main {
 
     // will be deleted
     public static void printAllLists() {
+
         for (Manager m : managersList)
             System.out.println(m.toString());
         System.out.println("*************************");

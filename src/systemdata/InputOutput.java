@@ -116,7 +116,6 @@ public class InputOutput {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
         return managersList;
     }
 

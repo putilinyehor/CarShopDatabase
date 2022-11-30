@@ -2,8 +2,7 @@ package persondata;
 
 public class Manager extends Person {
     private static int nextId = 0;
-
-    protected float seniority;
+    private float seniority;
 
     public Manager(String name, String surname, String patronymic, int birthDay, int birthMonth, int birthYear,
                    String telephone, String country, String city, int zipCode, String street,
@@ -30,6 +29,22 @@ public class Manager extends Person {
         this.seniority = seniority;
         this.setTelephone(telephone);
         this.address = address;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        Manager.nextId = nextId;
+    }
+
+    public float getSeniority() {
+        return seniority;
+    }
+
+    public void setSeniority(float seniority) {
+        this.seniority = seniority;
     }
 
     @Override
