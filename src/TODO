@@ -1,14 +1,4 @@
-1 day
-// later // 1. Add id numbers for classes car, manager etc.
->> 2. Add printing information for classes car, manager etc.
->> 3. Manager class, 92nd line - add a check fot a telephone number INTEGER
-// later 4. Adding a customer/car etc. from command line
->> 5. finish Address class
-
-2 day
->> 1. Save/Load system - basic
->> 2. Arrays of data - basic
-
+4. Adding a customer/car etc. from command line
 
 GLOBAL:
     Update ID's function, to prevent from using too large id numbers. Can be called manually

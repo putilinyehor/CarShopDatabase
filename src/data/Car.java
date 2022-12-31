@@ -1,6 +1,4 @@
-package cardata;
-
-import persondata.Manager;
+package data;
 
 import java.io.Serializable;
 
@@ -11,11 +9,11 @@ public class Car implements Serializable {
     private String brand;
     private int year;
     private DrivetrainType drivetrainType;
-    private float price; // TODO: Default currency - EURO, make functions for USD, etc.
+    private int price; // TODO: Default currency - EURO, make functions for USD, etc.
     private Manager manager;
     boolean isSold;
 
-    public Car(String name, String brand, int year, DrivetrainType drivetrainType, float price, Manager manager) {
+    public Car(String name, String brand, int year, DrivetrainType drivetrainType, int price, Manager manager) {
         this.id = nextID;
         nextID++;
         this.name = name;
@@ -37,10 +35,6 @@ public class Car implements Serializable {
 
     public static int getNextID() {
         return nextID;
-    }
-
-    public static void setNextID(int nextID) {
-        Car.nextID = nextID;
     }
 
     public String getName() {
@@ -75,11 +69,11 @@ public class Car implements Serializable {
         this.drivetrainType = drivetrainType;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -101,14 +95,19 @@ public class Car implements Serializable {
 
     @Override
     public String toString() {
-        return  "ID: " + this.id + "\n" +
+        String string = "ID: " + this.id + "\n" +
                 "Name: " + this.name + "\n" +
                 "Brand: " + this.brand + "\n" +
                 "Year: " + this.year + "\n" +
                 "Drivetrain type: " + this.drivetrainType + "\n" +
                 "Price: " + this.price + "\n" +
-                "Manager: " + "\n" +
-                "\tName: " + this.manager.getName() + "\n" +
-                "\tSurname: " + this.manager.getSurname() + "\n";
+                "Manager: " + "\n";
+        if (this.manager != null) {
+            string += "\tName: " + this.manager.getName() + "\n" +
+                    "\tSurname: " + this.manager.getSurname() + "\n";
+        } else
+            string += "no information";
+
+        return string;
     }
 }
