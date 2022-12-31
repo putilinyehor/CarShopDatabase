@@ -1,10 +1,6 @@
-package saledata;
-
-import cardata.Car;
-import persondata.Customer;
+package data;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 public class Sale implements Serializable {
     private int id;

@@ -1,4 +1,4 @@
-package cardata;
+package data;
 
 public enum DrivetrainType {
     AWD,

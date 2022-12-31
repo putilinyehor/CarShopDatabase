@@ -1,14 +1,14 @@
-package systemdata;
+package operations;
 
-import cardata.Car;
-import persondata.Customer;
-import persondata.Manager;
-import saledata.Sale;
+import data.Car;
+import data.Customer;
+import data.Manager;
+import data.Sale;
 
 import java.io.*;
 import java.util.List;
 
-public class InputOutput {
+public class FileIO {
     private static final String directory = System.getProperty("user.dir");
     private static final String managersFileName = "savefiles" + File.separator + "managers.ser";
     private static final String customersFileName = "savefiles" + File.separator + "customers.ser";

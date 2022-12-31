@@ -7,3 +7,22 @@
 регистрирует покупателя и сделанную покупку. О покупателе хранится
 сертификат на фамилию, имя и отчество, телефон, адрес и
 идентификационный номер).
+
+        Address addressTemplate1 = new Address("Germany", "Hamburg", 23505, "Kalkbrennerstr.", "5a");
+        Address addressTemplate2 = new Address("Poland", "Warsaw", 46779, "Some street.", "4b");
+        int [] dateOfBirth = {23, 5, 2004};
+        Manager managerTemplate = new Manager("Joseph", "Seed", "Stark", dateOfBirth, "1238712731784", addressTemplate1, 2.2F);
+        Manager managerTemplate2 = new Manager("Joseph", "Seed", "Stark", dateOfBirth, "1238712731784", addressTemplate1, 2.2F);
+        Customer customerTemplate = new Customer("John", "Ares", "The Mighty", dateOfBirth, "223588564856", addressTemplate2);
+        Customer customerTemplate2 = new Customer("John", "Ares", "The Mighty", dateOfBirth, "223588564856", addressTemplate2);
+        Car carTemplate = new Car("Mercedes-Benz GLC 250", "Mercedes-Benz", 2016, DrivetrainType.AWD, 35000, managerTemplate);
+        Sale saleTemplate = new Sale(carTemplate, customerTemplate, dateOfBirth, "Some info");
+        Sale saleTemplate2 = new Sale(carTemplate, customerTemplate, dateOfBirth);
+
+        DataLists.getManagersList().add(managerTemplate);
+        DataLists.getManagersList().add(managerTemplate2);
+        DataLists.getCustomersList().add(customerTemplate);
+        DataLists.getCustomersList().add(customerTemplate2);
+        DataLists.getCarsList().add(carTemplate);
+        DataLists.getSalesList().add(saleTemplate);
+        DataLists.getSalesList().add(saleTemplate2);
